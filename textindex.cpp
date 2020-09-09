@@ -28,39 +28,9 @@
 
 using namespace std;
 
-
 /*****************************************************************************/
 /*                                                                           */
-/*      getNextWord(string&) given a string, return the next word, and     */
-/*                remove this word from the current string                   */
-/*                                                                           */
-/*****************************************************************************/
-string textindex::getNextWord(string& line) {
-
-  string word="";
-  int pos;
-
-  if (line.length() > 1)
-	{
-	  pos = line.find_first_of(".,; :?!""''()");
-	  /* get next word */
-	  if (pos != 0) {
-		word = line.substr(0,pos);
-        }
-	  /* trim the line */
-	  if (pos == string::npos) {
-		pos = line.length()-1;
-	  }
-	  line = line.substr(pos+1, 2000);
-	}
-  return word;
-
-}
-
-
-/*****************************************************************************/
-/*                                                                           */
-/*      convert text into inverted list                                 */
+/*      Consructor - convert text into inverted list                                 */
 /*                                                                           */
 /*                                                                           */
 /*****************************************************************************/
@@ -130,4 +100,32 @@ list<int> textindex::indexSearch(string word) {
   } else {
     return (index[word]);
   }
+}
+
+/*****************************************************************************/
+/*                                                                           */
+/*      getNextWord(string&) given a string, return the next word, and     */
+/*                remove this word from the current string                   */
+/*                                                                           */
+/*****************************************************************************/
+string textindex::getNextWord(string& line) {
+
+  string word="";
+  int pos;
+
+  if (line.length() > 1)
+	{
+	  pos = line.find_first_of(".,; :?!""''()");
+	  /* get next word */
+	  if (pos != 0) {
+		word = line.substr(0,pos);
+        }
+	  /* trim the line */
+	  if (pos == string::npos) {
+		pos = line.length()-1;
+	  }
+	  line = line.substr(pos+1, 2000);
+	}
+  return word;
+
 }

@@ -21,7 +21,7 @@ int main() {
   list<int> result;
   list<int>::iterator it;
   int position;
-  string fileName = "Shakespeare.txt";
+  string fileName = "/home/class/shake/Shakespeare.txt";
   string word, line;
   // create text index
   textindex index(fileName);
